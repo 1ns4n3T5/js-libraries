@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Img-stack</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/imagehover.css/css/imagehover.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .img-stack{
+            width:200px;
+            height: 200px;
+            object-fit: cover;
+            margin-left: -150px;
+            transform: rotate(10deg);
+            border: 5px solid white;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            transition:0.5s;
+        }
+        .img-stack :nth-child(1) {
+            margin-left: 0;
+        }
+        .active{
+            transform: rotate(-25deg) translateY(-50px) translateX(-120px) scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+           <div class="d-flex justify-content-center mt-5 ">
+               <img src="img/honey_1.jpg" alt="" class="img-stack">
+               <img src="img/honey_2.jpg" alt="" class="img-stack">
+               <img src="img/honey_3.jpg" alt="" class="img-stack">
+               <img src="img/honey_4.jpg" alt="" class="img-stack">
+               <img src="img/FB_IMG_1620074188810.jpg" alt="" class="img-stack">
+               <img src="img/FB_IMG_1626828421185.jpg" alt="" class="img-stack">
+               <img src="img/FB_IMG_1626853524280.jpg" alt="" class="img-stack">
+               <img src="img/FB_IMG_1631775096581.jpg" alt="" class="img-stack">
+
+           </div>
+        </div>
+        <div class="col-12  mt-5 p-3-">
+            <button class="btn btn-primary" id="start">start</button>
+            <button class="btn btn-primary" id="stop">stop</button>
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    let imgstack=document.querySelectorAll(".img-stack");
+    let start=document.querySelector("#start")
+    let stop=document.querySelector("#stop");
+    let curstack=0;
+    let runner;
+   function  run(){
+       if(curstack>0){
+           imgstack[curstack-1].classList.remove('active');
+       }
+       else{
+           imgstack[imgstack.length-1].classList.remove('active');//last length is 8-1=7 the last child remove class
+       }
+       imgstack[curstack].classList.add('active');
+       if(curstack===imgstack.length-1)
+       {
+           curstack=0;
+       }
+       else {
+           curstack++;
+       }
+   }
+   start.addEventListener('click',()=>{
+          runner=setInterval(run,1000);
+        })
+
+    stop.addEventListener('click',()=>{
+        clearInterval(runner);
+    })
+
+
+
+</script>
+</html>

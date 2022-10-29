@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sweet alert</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+</head>
+<body>
+
+<div class="m-5">
+    <a href="https:google.com" class="btn btn-primary" id="visit">To Google</a>
+</div>
+
+<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script>
+    let visit=document.getElementById("visit");
+
+    visit.addEventListener('click',(e)=>{
+        e.preventDefault();
+        Swal.fire({
+            title: 'Are you sure want to visit Google?',
+            text: "Leave from current page!",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor:'var(--bs-primary)',
+            cancelButtonColor: 'var(--bs-danger)',
+            confirmButtonText: 'Let go!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                })
+                setInterval(()=>{
+                    location.href=visit.href
+
+                },2000)
+            }
+        })
+    })
+</script>
+</body>
+</html>

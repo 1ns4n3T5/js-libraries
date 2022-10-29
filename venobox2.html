@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/venobox/dist/venobox.min.css">
+    <style>
+        .small{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<a class="aa" data-gall="myGallery" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F471822498458189444%2F&psig=AOvVaw0TB0K3twIPw2nOBrOqgpAS&ust=1666939868760000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKCOieyqgvsCFQAAAAAdAAAAABAE"><img src="img/FB_IMG_1631775129519.jpg"  class="small"/></a>
+<a class="aa" data-gall="myGallery" href="img/honey_3.jpg"><img src="img/FB_IMG_1629967731006.jpg" class="small" /></a>
+<a class="aa" data-gall="myGallery" href="img/honey_2.jpg"><img src="img/FB_IMG_1626828421185.jpg" class="small" /></a>
+<script src="node_modules/venobox/dist/venobox.min.js"></script>
+<script>
+    new VenoBox({
+        selector:'.aa',
+        bgColor:'rgba(47,44,44,0.43)',
+        share:true,
+        spinner:'fold',
+        infinigall:true
+
+    });
+</script>
+</body>
+</html>

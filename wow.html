@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <title>library-animate</title>
+</head>
+<body>
+<div class="vh-100 border border-primary">
+    <h1 class="wow animate__flip">san kyi tr pr byar</h1>
+    <p class=" animate__bounce">amet, consectetur adipisicing elit. Accusamus aperiam asperiores beatae deleniti</p>
+</div>
+<div class="vh-100 border border-primary">
+    <h1 class="wow animate__bounce">san kyi tr pr byar</h1>
+    <p class="wow animate__bounce">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam asperiores beatae deleniti eaque error et harum, id labore tenetur. Amet aspe</p>
+</div>
+<div class="vh-100 border border-primary">
+    <h1 class="wow animate__bounce">san kyi tr pr byar</h1>
+    <p class="wow animate__bounce">amet, consectetur adipisicing elit. Accusamus aperiam asperiores beatae deleniti</p>
+</div>
+<div class="vh-100 border border-primary">
+    <h1 class="wow animate__bounce">san kyi tr pr byar</h1>
+    <p class="wow animate__bounce">amet, consectetur adipisicing elit. Accusamus aperiam asperiores beatae deleniti</p>
+</div>
+<div class="vh-100 border border-primary" id="counter">
+    <h1 class="counter text-center mt-3">1,123,456 downloads</h1>
+</div>
+
+
+
+</body>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/typed.js/lib/typed.min.js"></script>
+<script src="node_modules/waypoints/lib/noframework.waypoints.js"></script>
+<script src="node_modules/counterup2/dist/index.js"></script>
+<script src="node_modules/wow.js/dist/wow.js"></script>
+<script !src="">
+    let wow = new WOW(
+        {
+            boxClass:     'wow',      // animated element css class (default is wow)
+            animateClass: 'animate__animated', // animation css class (default is animated)
+            offset:       0,          // distance to the element when triggering the animation (default is 0)
+            mobile:       true,       // trigger animations on mobile devices (default is true)
+            live:         true,       // act on asynchronously loaded content (default is true)
+            callback:     function(box) {
+                // the callback is fired every time an animation is started
+                // the argument that is passed in is the DOM node being animated
+            },
+            scrollContainer: null,    // optional scroll container selector, otherwise use window,
+            resetAnimation: true,     // reset animation on end (default is true)
+        }
+    );
+    wow.init();
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Img-stack</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/imagehover.css/css/imagehover.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+       .img{
+           width: 300px;
+           object-fit: cover;
+           transition: 0.5s;
+           transform: scale(1);
+           display: block;
+           margin-bottom: 5px;
+           /*animation-direction:reverse;*/
+           /*animation-timing-function:ease-in-out;*/
+       }
+       /*.img :hover{*/
+       /*    transform: scale(1.2);*/
+       /*}*/
+       .test-ani{
+           animation:test 3s  ease-in alternate;
+
+       }
+       @keyframes test {
+          0%{
+              transform: translateX(-300px) rotateY(90deg);
+          }
+           30%{
+               transform:translateX(500px) scale(1.5);
+           }
+           70%{
+               transform: translateX(-70px) scale(0.5);
+           }
+           100%{
+               transform: translateX(-300px);
+           }
+       }
+    </style>
+</head>
+<body>
+
+
+  <img src="img/honey_1.jpg" alt="" class="img" style="animation-duration: 5s">
+  <img src="img/honey_2.jpg" alt="" class="img" style="animation-duration: 5.5s">
+  <img src="img/honey_3.jpg" alt="" class="img" style="animation-duration: 5.8s">
+<div class="row" style="width: 50px;">
+   <div class="col-2 align-self-center">
+       <button class="btn btn-warning" > start</button>
+   </div>
+
+</div>
+
+
+
+
+
+</body>
+<script>
+let btn=document.querySelector('button');
+let img=document.querySelectorAll('.img');
+
+btn.addEventListener('click',()=>{
+   [...img].map(function (e){
+       if(e.classList.contains('test-ani')){
+           e.classList.remove('test-ani');
+           setInterval(()=>{
+               e.classList.add('test-ani');
+           },100)
+       }
+       else{
+           e.classList.add('test-ani');
+       }
+   })
+})
+</script>
+</html>
